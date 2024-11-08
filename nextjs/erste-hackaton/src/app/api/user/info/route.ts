@@ -1,5 +1,5 @@
 interface UserInfoRequest {
-    userId: string;
+    userId: number;
 }
 
 export async function POST(body: UserInfoRequest) {
