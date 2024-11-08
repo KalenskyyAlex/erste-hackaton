@@ -1,0 +1,6 @@
+POST http://localhost:3000/api/user/history
+Content-Type: application/json
+
+{
+  "userId": 1
+}
