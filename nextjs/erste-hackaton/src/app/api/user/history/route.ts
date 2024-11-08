@@ -12,28 +12,9 @@ interface ReceiptEntry {
     receipt_id: string,
     issue_date: string,
     organization_id: number,
-    user_id: number
+    user_id: number,
+    total_price: number
 }
-
-/* Response
-    months: [
-        "01.2024" [
-            "shop1": [
-                "entry1" {
-                    id: ...
-                    name: ...
-                    price: ...
-                }
-            ],
-            "shop2": [
-                ...
-            ],
-            ...
-        ],
-        ...
-    ]
-
- */
 
 export async function POST(body_: NextRequest) {
     const body = await body_.json();
@@ -58,7 +39,7 @@ export async function POST(body_: NextRequest) {
         receipt_reduced.id = receipt.id;
         receipt_reduced.issue_date = receipt.issue_date;
         receipt_reduced.organization_id = receipt.organization_id;
-
+        receipt_reduced.total_price = receipt.total_price;
         // Add the receipt to the appropriate month-year group
         acc[monthYear].push(receipt_reduced);
 

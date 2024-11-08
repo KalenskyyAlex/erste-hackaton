@@ -20,7 +20,15 @@ class ReceiptReader extends DataReader {
                         receipt_id : parseInt(row.receipt_id),
                         issue_date : row.issue_date,
                         organization_id : parseInt(row.organization_id),
-                        user_id: parseInt(row.user_id)
+                        user_id: parseInt(row.user_id),
+                        tax_base_basic: parseFloat(row.tax_base_basic),
+                        tax_base_reduced: parseFloat(row.tax_base_reduced),
+                        total_price: parseFloat(row.total_price),
+                        free_tax_amount: parseFloat(row.free_tax_amount),
+                        vat_amount_basic: parseFloat(row.vat_amount_basic),
+                        vat_amount_reduced: parseFloat(row.vat_amount_reduced),
+                        var_rate_basic: parseFloat(row.var_rate_basic),
+                        vat_rate_reduced: parseFloat(row.vat_rate_reduced)
                     });
                 })
                 .on("end", () => {
