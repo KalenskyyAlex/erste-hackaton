@@ -1,7 +1,7 @@
 import ProductReader from "@/app/api/util/modules/prod";
 
 export async function GET() {
-    const productReader = new ProductReader("./data/Optimized_Products.csv");
+    const productReader = new ProductReader("public/data/products.csv");
 
     try {
         const products = await productReader.readData();
