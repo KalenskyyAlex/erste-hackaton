@@ -23,11 +23,12 @@ class ProductReader extends DataReader {
             price: parseFloat(row.price),
             frequency: parseInt(row.frequency),
             category: row.category,
+            organization_id: parseInt(row.organization_id)
           });
         })
         .on("end", () => {
           console.log("CSV file successfully processed");
-          resolve(products); // Resolve the promise with the parsed products array
+          resolve(products.filter(entry => entry.price > 0)); // Resolve the promise with the parsed products array
         })
         .on("error", (error) => {
           console.error("Error reading the CSV file:", error);
