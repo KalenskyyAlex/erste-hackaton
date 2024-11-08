@@ -19,7 +19,7 @@ class ProductReader extends DataReader {
           // Assuming CSV rows have 'name', 'price', 'frequency', and 'category' fields
           products.push({
             id: row.id,
-            name: row.name,
+            name: row.name.trim(),
             price: parseFloat(row.price),
             frequency: parseInt(row.frequency),
             category: row.category,
