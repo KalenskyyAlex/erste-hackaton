@@ -4,7 +4,7 @@ import csv from 'csv-parser';
 
 
 class ProductReader extends DataReader {
-  constructor(pathToData) {
+  constructor(pathToData='public/data/products.csv') {
     super(pathToData); // Specify the path to Product.csv
   }
 
@@ -18,6 +18,7 @@ class ProductReader extends DataReader {
         .on("data", (row) => {
           // Assuming CSV rows have 'name', 'price', 'frequency', and 'category' fields
           products.push({
+            id: row.id,
             name: row.name,
             price: parseFloat(row.price),
             frequency: parseInt(row.frequency),
