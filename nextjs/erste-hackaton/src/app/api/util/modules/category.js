@@ -8,7 +8,6 @@ class CategoryReader extends DataReader {
         super(pathToData); // Specify the path to Product.csv
     }
 
-    // Implementation of the readData method
     readData() {
         return new Promise((resolve, reject) => {
             const categories = [];
