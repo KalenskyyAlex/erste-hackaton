@@ -2,7 +2,6 @@ import DataReader from "../abstract.js";
 import fs from 'fs';
 import csv from 'csv-parser';
 
-
 class ReceiptReader extends DataReader {
     constructor(pathToData='public/data/receipts.csv') {
         super(pathToData); // Specify the path to Product.csv
@@ -21,6 +20,7 @@ class ReceiptReader extends DataReader {
                         receipt_id : parseInt(row.receipt_id),
                         issue_date : row.issue_date,
                         organization_id : parseInt(row.organization_id),
+                        user_id: parseInt(row.user_id)
                     });
                 })
                 .on("end", () => {
